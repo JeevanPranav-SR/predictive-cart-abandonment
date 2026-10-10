@@ -1,0 +1,161 @@
+{
+  "model_type": "RandomForestClassifier",
+  "training_samples": 960,
+  "test_samples": 240,
+  "features": [
+    "session_duration",
+    "mouse_move_count",
+    "mouse_distance",
+    "average_mouse_speed",
+    "maximum_mouse_speed",
+    "direction_changes",
+    "scroll_count",
+    "scroll_distance",
+    "click_count",
+    "cart_time",
+    "checkout_time",
+    "checkout_hover_count",
+    "checkout_leave_count",
+    "checkout_click_count",
+    "idle_time",
+    "checkout_hesitation_score"
+  ],
+  "metrics": {
+    "name": "RandomForest",
+    "accuracy": 0.8833,
+    "precision": 0.8852,
+    "recall": 0.8852,
+    "f1": 0.8852,
+    "confusion_matrix": [
+      [
+        104,
+        14
+      ],
+      [
+        14,
+        108
+      ]
+    ]
+  },
+  "comparisons": [
+    {
+      "name": "RandomForest",
+      "accuracy": 0.8833,
+      "precision": 0.8852,
+      "recall": 0.8852,
+      "f1": 0.8852,
+      "confusion_matrix": [
+        [
+          104,
+          14
+        ],
+        [
+          14,
+          108
+        ]
+      ]
+    },
+    {
+      "name": "LogisticRegression",
+      "accuracy": 0.8792,
+      "precision": 0.8843,
+      "recall": 0.877,
+      "f1": 0.8807,
+      "confusion_matrix": [
+        [
+          104,
+          14
+        ],
+        [
+          15,
+          107
+        ]
+      ]
+    },
+    {
+      "name": "DecisionTree",
+      "accuracy": 0.8417,
+      "precision": 0.8559,
+      "recall": 0.8279,
+      "f1": 0.8417,
+      "confusion_matrix": [
+        [
+          101,
+          17
+        ],
+        [
+          21,
+          101
+        ]
+      ]
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "checkout_hesitation_score",
+      "importance": 0.2389
+    },
+    {
+      "feature": "checkout_hover_count",
+      "importance": 0.1327
+    },
+    {
+      "feature": "scroll_count",
+      "importance": 0.1305
+    },
+    {
+      "feature": "checkout_leave_count",
+      "importance": 0.1298
+    },
+    {
+      "feature": "idle_time",
+      "importance": 0.0688
+    },
+    {
+      "feature": "scroll_distance",
+      "importance": 0.0571
+    },
+    {
+      "feature": "checkout_click_count",
+      "importance": 0.0514
+    },
+    {
+      "feature": "cart_time",
+      "importance": 0.0456
+    },
+    {
+      "feature": "checkout_time",
+      "importance": 0.0277
+    },
+    {
+      "feature": "session_duration",
+      "importance": 0.0217
+    },
+    {
+      "feature": "mouse_distance",
+      "importance": 0.0199
+    },
+    {
+      "feature": "mouse_move_count",
+      "importance": 0.0195
+    },
+    {
+      "feature": "maximum_mouse_speed",
+      "importance": 0.0171
+    },
+    {
+      "feature": "average_mouse_speed",
+      "importance": 0.0151
+    },
+    {
+      "feature": "direction_changes",
+      "importance": 0.0146
+    },
+    {
+      "feature": "click_count",
+      "importance": 0.0094
+    }
+  ],
+  "data_source": "synthetic demonstration dataset",
+  "disclaimer": "These scores come from a held-out split of synthetic data. Synthetic data can overstate real-world performance. Retrain with ethically collected sessions before any production use."
+}
