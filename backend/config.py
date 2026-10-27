@@ -11,7 +11,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 ML_DIR = os.path.join(BASE_DIR, "ml")
 
-DATABASE_PATH = os.environ.get("CARTT_DB", os.path.join(DATA_DIR, "cartt.db"))
+# Vercel functions can write only under /tmp, and that disk is not shared
+# across instances. Local runs keep the SQLite file in backend/data.
+_default_db = "/tmp/cartt.db" if os.environ.get("VERCEL") else os.path.join(DATA_DIR, "cartt.db")
+DATABASE_PATH = os.environ.get("CARTT_DB", _default_db)
 MODEL_PATH = os.environ.get("CARTT_MODEL", os.path.join(ML_DIR, "model.pkl"))
 METRICS_PATH = os.path.join(ML_DIR, "metrics.json")
 DATASET_PATH = os.path.join(DATA_DIR, "sessions.csv")

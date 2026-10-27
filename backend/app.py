@@ -41,7 +41,10 @@ def create_app():
     return app
 
 
+# Vercel looks for a Flask instance named app. Local `python app.py` uses the same object.
+app = create_app()
+
+
 if __name__ == "__main__":
     # Local college-demo server. Debug stays on so students can see stack traces.
-    application = create_app()
-    application.run(host="127.0.0.1", port=5001, debug=True)
+    app.run(host="127.0.0.1", port=5001, debug=True)

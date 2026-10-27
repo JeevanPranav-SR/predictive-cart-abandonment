@@ -8,7 +8,7 @@ import os
 import sqlite3
 from datetime import datetime, timezone
 
-from config import DATABASE_PATH, DATA_DIR
+from config import DATABASE_PATH
 from models import FEATURE_COLUMNS, empty_features
 
 
@@ -17,8 +17,8 @@ def utc_now():
 
 
 def get_connection():
-    os.makedirs(DATA_DIR, exist_ok=True)
-    conn = sqlite3.connect(DATABASE_PATH)
+    os.makedirs(os.path.dirname(DATABASE_PATH) or ".", exist_ok=True)
+    conn = sqlite3.connect(DATABASE_PATH, timeout=10)
     conn.row_factory = sqlite3.Row
     return conn
 
